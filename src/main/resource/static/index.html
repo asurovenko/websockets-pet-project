@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+    window.addEventListener('load', function (e) {
+        const index = new WebSocket('ws://localhost:8080/ws/weather');
+        index.addEventListener('open', function (e) {
+            index.send('websockets');
+        });
+        index.addEventListener('message', function (e) {
+            document.getElementById("text").innerHTML = e.data;
+        });
+    })
+</script>
+<h1 id="text">text</h1>
+</body>
+</html>
